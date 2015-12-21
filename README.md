@@ -13,3 +13,10 @@ and inspired by literature available on systems like [Espresso](https://engineer
 
 ## Where it fits
 ![polyglot infographic](https://github.com/flipkart-incubator/polyglot/raw/master/docs/polyglot_infographic.jpg)
+
+## Getting help
+polyglot is in very early stages of evolution. For discussion, subscribe to the polyglot interest mailing list: http://groups.google.com/group/polyglot-interest
+
+## License
+polyglot is licensed under : The Apache Software License, Version 2.0. Here is a copy of the license (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
