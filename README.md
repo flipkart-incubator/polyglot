@@ -8,8 +8,8 @@ Different databases try to optimize for specific workload patterns and data dura
 others leverage disks - spinning or optimized for SSDs. The underlying storage is also quite different between Relational, Columnar, Key-Value or Document store.
 
 polyglot is a tiered data store solution for online applications that combines a set of database features. Work on polyglot is derived from
-solutions like [Vitess](https://github.com/youtube/vitess) [Aesop](https://github.com/Flipkart/aesop) and inspired by work like 
-[Espresso](https://engineering.linkedin.com/espresso/introducing-espresso-linkedins-hot-new-distributed-document-store).
+solutions for scaling MySQL :[Vitess](https://github.com/youtube/vitess), Reliable change propagation system :[Aesop](https://github.com/Flipkart/aesop) and inspired 
+by work on systems like [Espresso](https://engineering.linkedin.com/espresso/introducing-espresso-linkedins-hot-new-distributed-document-store).
 
 ## Where it fits
 ![polyglot infographic](https://github.com/flipkart-incubator/polyglot/raw/master/docs/polyglot_infographic.jpg)
