@@ -14,6 +14,16 @@ and inspired by literature available on systems like [Espresso](https://engineer
 ## Where it fits
 ![polyglot infographic](https://github.com/flipkart-incubator/polyglot/raw/master/docs/polyglot_infographic.jpg)
 
+## Features
+* Transactional - limited to a shard (has to be explicitly defined), 2PC may be later
+* Secondary indices - read supported across shards. Possibly inconsistent writes (in the absence of 2PC). Also supports Eventually Consistent secondary indices (has to be explicitly defined) and Free-Text search.
+* Consistency - No loss of data with failure tolerance of 1 node in a shard. Possible loss with simultaneous failure of 2 or more nodes. RYW when limited to single shard. Writes limited to one shard and will fail across shards (2PC scenario)
+* SQL or a subset as the primary query language
+* Choice of Read Performance vs Mutable secondary indices
+* Availability - Read availability upto N-1 failures of nodes in a shard. Write availability affected by re-parenting duration (reparenting is automatic) and detection of failure (automatic except in case of network partitions)
+* Data Change propagation (with at least once delivery guarantees) with guaranteed ordering within a partition(a subset within a shard). During re-sharding, manual intervention may be needed to provide ordering guarantees.
+
+
 ## Getting help
 polyglot is in very early stages of evolution. For discussion, subscribe to the polyglot interest mailing list: http://groups.google.com/group/polyglot-interest
 
