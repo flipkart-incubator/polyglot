@@ -23,6 +23,9 @@ and inspired by literature available on systems like [Espresso](https://engineer
 * Availability - Read availability upto N-1 failures of nodes in a shard. Write availability affected by re-parenting duration (reparenting is automatic) and detection of failure (automatic except in case of network partitions)
 * Data Change propagation (with at least once delivery guarantees) with guaranteed ordering within a partition(a subset within a shard). During re-sharding, manual intervention may be needed to provide ordering guarantees.
 
+## Architecture
+The various components that make up the architecture of polyglot are shown below:
+![polyglot architecture](https://github.com/flipkart-incubator/polyglot/raw/master/docs//polyglot_architecture.png)
 
 ## Getting help
 polyglot is in very early stages of evolution. For discussion, subscribe to the polyglot interest mailing list: http://groups.google.com/group/polyglot-interest
