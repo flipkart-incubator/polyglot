@@ -1,3 +1,20 @@
+
+/*
+ * Copyright (c) 2016. the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+
 package com.flipkart.polyglot.jdbc;
 
 
@@ -23,6 +40,12 @@ public class PolyglotJDBCUrl {
     private final String url;
     private final Constants.DataStoreType dataStoreType;
 
+    /**
+     * Constructor to return PolyglotJDBC object for url and info properties
+     * @param url
+     * @param info
+     * @throws SQLException
+     */
     public PolyglotJDBCUrl(String url, Properties info) throws SQLException {
         info = getURLParamProperties(url, info);
 
@@ -48,22 +71,44 @@ public class PolyglotJDBCUrl {
         this.dataStoreType = getDataStoreType(dataStoreType);
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTxnStroeUrl() {
         return txnStroeUrl;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getArchivalStoreUrl() {
         return archivalStoreUrl;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getUrl() {
         return url;
     }
 
+    /**
+     *
+     * @return
+     */
     public Constants.DataStoreType getDataStoreType() {
         return dataStoreType;
     }
 
+    /**
+     * Get URL params and add them in info properties
+     * @param url
+     * @param info
+     * @return
+     */
     private static Properties getURLParamProperties(String url, Properties info) {
 
      /*
@@ -111,6 +156,11 @@ public class PolyglotJDBCUrl {
         return info;
     }
 
+    /**
+     * Get DataStoreType
+     * @param dataStoreType
+     * @return
+     */
     public static Constants.DataStoreType getDataStoreType(String dataStoreType) {
         switch (dataStoreType.toLowerCase()) {
             case "txnl":
@@ -122,6 +172,11 @@ public class PolyglotJDBCUrl {
         }
     }
 
+    /**
+     * Return TxnlUrl for given matcher
+     * @param m
+     * @return
+     */
     private String getTxnlUrl(Matcher m) {
         String url = com.flipkart.vitess.util.Constants.URL_PREFIX;
         if (m.group(2) != null)
@@ -140,6 +195,11 @@ public class PolyglotJDBCUrl {
         return url;
     }
 
+    /**
+     * Archival URL for given matcher
+     * @param m
+     * @return
+     */
     private String getArchivalUrl(Matcher m) {
         String url = PhoenixRuntime.JDBC_PROTOCOL;
         if (m.group(9) != null) {
