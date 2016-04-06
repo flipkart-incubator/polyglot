@@ -50,16 +50,13 @@ public class PolyglotJDBCUrl {
         info = getURLParamProperties(url, info);
 
                 /* URL pattern e.g. jdbc:polyglot://username:password@txnstore:ip1:port1,ip2:port2@archivalstore:ip3:port3/keyspace/catalog?
-        property1=value1.. */
+        property1=value1&property2=value2.. */
 
         final Pattern p = Pattern
                 .compile("^jdbc:(polyglot)://((\\w+)(:(\\w*))?@)?(txnstore:(\\S+)@)?(archivalstore:(\\S+))?/(\\w+)/(\\w+)(\\?(\\S+))?");
         final Matcher m = p.matcher(url);
         if (!m.find()) {
             throw new SQLException(Constants.SQLExceptionMessages.MALFORMED_URL);
-        }
-        for (int i = 1; i <= m.groupCount(); i++) {
-            System.out.println(i + " : " + m.group(i));
         }
         this.txnStroeUrl = getTxnlUrl(m);
         /* hbase phoenix jdbc url format
@@ -75,7 +72,7 @@ public class PolyglotJDBCUrl {
      *
      * @return
      */
-    public String getTxnStroeUrl() {
+    public String getTxnStoreUrl() {
         return txnStroeUrl;
     }
 
@@ -121,7 +118,6 @@ public class PolyglotJDBCUrl {
 
         if (index != -1) {
             String paramString = url.substring(index + 1, url.length());
-            url = url.substring(0, index);
 
             StringTokenizer queryParams = new StringTokenizer(paramString, "&");
 
@@ -150,6 +146,9 @@ public class PolyglotJDBCUrl {
                     } catch (NoSuchMethodError nsme) {
                         info.put(parameter, URLDecoder.decode(value));
                     }
+                }
+                else if(parameter != null && parameter.length() > 0){
+                    info.put(parameter,value);
                 }
             }
         }

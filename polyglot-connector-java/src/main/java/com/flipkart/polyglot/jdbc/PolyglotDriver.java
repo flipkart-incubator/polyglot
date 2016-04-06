@@ -57,7 +57,7 @@ public class PolyglotDriver implements Driver {
             DataStoreType dataStoreType = polyglotJDBCUrl.getDataStoreType();
             switch (dataStoreType){
                 case TXNL :
-                    return DriverManager.getConnection(polyglotJDBCUrl.getTxnStroeUrl(), info);
+                    return DriverManager.getConnection(polyglotJDBCUrl.getTxnStoreUrl(), info);
                 case ARCHIVAL:
                     return DriverManager.getConnection(polyglotJDBCUrl.getArchivalStoreUrl(),info);
             }
@@ -85,7 +85,7 @@ public class PolyglotDriver implements Driver {
     public DriverPropertyInfo[] getPropertyInfo(String url, Properties info) throws SQLException {
         PolyglotJDBCUrl polyglotJDBCUrl = new PolyglotJDBCUrl(url, info);
         VitessDriver vitessDriver = new VitessDriver();
-        DriverPropertyInfo[] vitessDpi = vitessDriver.getPropertyInfo(polyglotJDBCUrl.getTxnStroeUrl(),info);
+        DriverPropertyInfo[] vitessDpi = vitessDriver.getPropertyInfo(polyglotJDBCUrl.getTxnStoreUrl(),info);
         PhoenixDriver phoenixDriver = new PhoenixDriver();
         DriverPropertyInfo[] phoenixDpi = phoenixDriver.getPropertyInfo(polyglotJDBCUrl.getArchivalStoreUrl(),info);
         DriverPropertyInfo[] dpi = (DriverPropertyInfo[]) ArrayUtils.addAll(vitessDpi,phoenixDpi);
@@ -113,6 +113,6 @@ public class PolyglotDriver implements Driver {
     }
 
     public Logger getParentLogger() throws SQLFeatureNotSupportedException {
-        return null;
+        throw new SQLFeatureNotSupportedException();
     }
 }
