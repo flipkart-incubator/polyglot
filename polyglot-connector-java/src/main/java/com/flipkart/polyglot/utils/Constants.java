@@ -34,7 +34,7 @@ public class Constants {
 
     public static final class SQLExceptionMessages {
         public static final String MALFORMED_URL = "Malformed URL Exception";
-        public static final String INIT_FAILED = "Failed to Initialize Vitess JDBC Driver";
+        public static final String INIT_FAILED = "Failed to Initialize PolyGlot JDBC Driver";
     }
 
     public enum DataStoreType {
