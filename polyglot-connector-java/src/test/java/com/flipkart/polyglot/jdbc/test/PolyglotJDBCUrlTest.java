@@ -34,7 +34,7 @@ public class PolyglotJDBCUrlTest {
         Properties info = new Properties();
         PolyglotJDBCUrl polyglotJDBCUrl = new PolyglotJDBCUrl("jdbc:polyglot://user:password@txnstore:10.33.17.231:15991@archivalstore:10.34.17.147:2181:hbase/shipment/shipment?dataStoreType=archival",
                 info);
-        Assert.assertEquals("jdbc:vitess://user:password@10.33.17.231:15991/shipment/shipment?dataStoreType=archival",polyglotJDBCUrl.getTxnStroeUrl());
+        Assert.assertEquals("jdbc:vitess://user:password@10.33.17.231:15991/shipment/shipment?dataStoreType=archival",polyglotJDBCUrl.getTxnStoreUrl());
         Assert.assertEquals("jdbc:phoenix:10.34.17.147:2181:hbase",polyglotJDBCUrl.getArchivalStoreUrl());
     }
 
@@ -44,7 +44,7 @@ public class PolyglotJDBCUrlTest {
         info.setProperty("dataStoreType","archival");
         PolyglotJDBCUrl polyglotJDBCUrl = new PolyglotJDBCUrl("jdbc:polyglot://user:password@txnstore:10.33.17.231:15991@archivalstore:10.34.17.147:2181:hbase/shipment/shipment",
                 info);
-        Assert.assertEquals("jdbc:vitess://user:password@10.33.17.231:15991/shipment/shipment",polyglotJDBCUrl.getTxnStroeUrl());
+        Assert.assertEquals("jdbc:vitess://user:password@10.33.17.231:15991/shipment/shipment",polyglotJDBCUrl.getTxnStoreUrl());
         Assert.assertEquals("jdbc:phoenix:10.34.17.147:2181:hbase",polyglotJDBCUrl.getArchivalStoreUrl());
     }
 

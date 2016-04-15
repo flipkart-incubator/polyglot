@@ -147,7 +147,7 @@ public class PolyglotJDBCUrl {
                         info.put(parameter, URLDecoder.decode(value));
                     }
                 }
-                else if(parameter != null && parameter.length() > 0){
+                else if(null != parameter && parameter.length() > 0){
                     info.put(parameter,value);
                 }
             }
@@ -177,20 +177,22 @@ public class PolyglotJDBCUrl {
      * @return
      */
     private String getTxnlUrl(Matcher m) {
-        String url = com.flipkart.vitess.util.Constants.URL_PREFIX;
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(com.flipkart.vitess.util.Constants.URL_PREFIX);
         if (m.group(2) != null)
-            url = url + m.group(2);
+            stringBuilder.append(m.group(2));
         if (m.group(7) != null)
-            url = url + m.group(7);
+            stringBuilder.append(m.group(7));
         if (m.group(10) != null) {
-            url = url + "/" + m.group(10);
+            stringBuilder.append("/"+m.group(10));
         }
         if (m.group(11) != null) {
-            url = url + "/" + m.group(11);
+            stringBuilder.append("/"+m.group(11));
         }
         if (m.group(12) != null) {
-            url = url + m.group(12);
+            stringBuilder.append(m.group(12));
         }
+        String url = stringBuilder.toString();
         return url;
     }
 
@@ -200,10 +202,12 @@ public class PolyglotJDBCUrl {
      * @return
      */
     private String getArchivalUrl(Matcher m) {
-        String url = PhoenixRuntime.JDBC_PROTOCOL;
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(PhoenixRuntime.JDBC_PROTOCOL);
         if (m.group(9) != null) {
-            url = url + ":" + m.group(9);
+            stringBuilder.append(":" + m.group(9));
         }
+        String url = stringBuilder.toString();
         return url;
     }
 }
