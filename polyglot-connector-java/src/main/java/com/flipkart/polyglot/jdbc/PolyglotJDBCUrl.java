@@ -137,7 +137,7 @@ public class PolyglotJDBCUrl {
                     }
                 }
 
-                if ((value != null && value.length() > 0) && (parameter != null
+                if ((null != value && value.length() > 0) && (null != parameter
                         && parameter.length() > 0)) {
                     try {
                         info.put(parameter, URLDecoder.decode(value, "UTF-8"));
