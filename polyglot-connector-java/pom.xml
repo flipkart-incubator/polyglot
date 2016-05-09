@@ -22,17 +22,65 @@
 
     <groupId>com.flipkart.polyglot</groupId>
     <artifactId>polyglot-connector-java</artifactId>
-    <version>1.0.0-beta</version>
+    <version>1.0.4-beta</version>
     <dependencies>
         <dependency>
             <groupId>com.flipkart.vitess</groupId>
             <artifactId>vitess-connector-java</artifactId>
-            <version>1.0.0-Polyglot</version>
+            <version>1.0.0-beta</version>
         </dependency>
         <dependency>
             <groupId>org.apache.phoenix</groupId>
             <artifactId>phoenix-core</artifactId>
-            <version>4.8.0-HBase-1.2-Polyglot</version>
+            <!--<version>4.7.1-HBase-1.1-Polyglot-1.2</version>-->
+            <version>4.7.0-HBase-1.1</version>
+
+            <!--<version>4.8.0-HBase-1.2-SNAPSHOT</version>-->
         </dependency>
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>2.5.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>16.0</version>
+        </dependency>
+
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-shade-plugin</artifactId>-->
+                <!--<version>2.4.3</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>shade</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<artifactSet>-->
+                                <!--<include>-->
+
+                                <!--</include>-->
+                            <!--</artifactSet>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+        </plugins>
+    </build>
 </project>
