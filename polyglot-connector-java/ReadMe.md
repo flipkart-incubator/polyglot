@@ -9,7 +9,7 @@ Based on dataStoreType it does use txnlStore or archivalStore. Addition to this 
 
 ### Connecting with Archival Store : 
 
-                Connectoin conn;
+                Connection conn;
                 Properties prop = new Properties();
                  Class.forName("com.flipkart.polyglot.jdbc.PolyglotDriver");
                  conn =  DriverManager.getConnection("jdbc:polyglot://txnstore:10.33.17.231:15991@archivalstore:localhost:2181:hbase/vt_shipment/shipment?dataStoreType=archival",prop);
