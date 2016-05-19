@@ -31,6 +31,5 @@ Based on dataStoreType it does use txnlStore or archivalStore. Addition to this 
                     System.out.println(rst.getString(1) + " " + rst.getString(2));
                 }
 
-Addition parameter e.g. : execute_type = stream,simple , Default : Simple , tablet_type = Master, RdOnly, Replica Default : Master
-Could be passed.
+Addition parameter e.g. : execute_type = stream,simple , Default : Simple , tablet_type = Master, RdOnly, Replica Default : Master could be passed.
 
