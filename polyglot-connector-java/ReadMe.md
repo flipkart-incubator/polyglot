@@ -5,7 +5,7 @@ Sample URL :
 
 Based on dataStoreType it does use txnlStore or archivalStore. Addition to this required properties for vitess connector and phoenix connector could be passed either as params or in url.
 
-### Sample Code Snipped to use Polyglot Driver
+### Sample Code Snippet to use Polyglot Driver
 
 ### Connecting with Archival Store : 
 
@@ -32,6 +32,7 @@ Based on dataStoreType it does use txnlStore or archivalStore. Addition to this 
                 }
 
 Addition parameter e.g. : execute_type = stream,simple , Default : Simple 
+
                           tablet_type = Master, RdOnly, Replica Default : Master
 Could be passed.
                           
